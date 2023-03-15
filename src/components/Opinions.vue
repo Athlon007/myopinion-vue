@@ -15,26 +15,21 @@ import Opinion from './Opinion.vue';
 </template>
 
 <script>
+import axios from '../axios_auth.js';
+
 export default {
     name: "Opinions",
     data() {
         return {
-            'opinions': [
-                {
-                    'title': 'Opinion 1',
-                    'message': 'This is the first opinion that is very long yes. Ooooooh so long...'
-                },
-                {
-                    'title': 'Opinion 2',
-                    'message': 'This is the second opinion'
-                },
-                {
-                    'title': 'Opinion 3',
-                    'message': 'This is the third opinion'
-                }
-            ]
+            'opinions': []
         }
-    }
+    },
+    methods: {
+        async loadOpinions() {
+            const response = await axios.get('/opinions');
+            this.opinions = response.data;
+        }
+    },
 }
 </script>
 
