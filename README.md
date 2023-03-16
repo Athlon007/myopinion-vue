@@ -1,35 +1,26 @@
-# myopinion-vue
+# My Opinion - Front-end
 
-This template should help get you started developing with Vue 3 in Vite.
+The Web Development 2 project, which builds upon the Web Development 1 project. This is the Vue.JS front-end
 
-## Recommended IDE Setup
+For the front-end, visit <http://github.com/Athlon007/myopinion-vue>.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Hosted at: <http://myopinion.kfigura.nl/>
 
-## Customize configuration
+If you want to visit the old version, visit <http://old.myopinion.kfigura.nl>.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Used Libraries
 
-## Project Setup
+- [Vue](https://vuejs.org/)
+- [Vue Router](https://router.vuejs.org/)
+- [Paper](https://www.getpapercss.com/)
 
-```sh
-npm install
-```
+## Author
 
-### Compile and Hot-Reload for Development
+> Konrad Figura
+> 680886
+> IT2a
+> 2023
 
-```sh
-npm run dev
-```
+## Licence
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+This program uses The MIT Licence. Feel free to use its code for any purpose!
