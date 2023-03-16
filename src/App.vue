@@ -16,6 +16,19 @@ import { RouterLink, RouterView } from "vue-router";
   </main>
 </template>
 
+<script>
+import axios from "./axios_auth.js";
+
+export default {
+  name: "App",
+  async mounted() {
+    // Load reaction entities into global value.
+    const response = await axios.get("/reactions");
+    window.reactionEntities = response.data;
+  },
+};
+</script>
+
 <style>
 @import "../node_modules/papercss/dist/paper.css";
 </style>

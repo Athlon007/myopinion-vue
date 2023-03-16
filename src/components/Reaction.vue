@@ -47,6 +47,11 @@ export default {
     },
     mounted() {
         this.displayedCount = this.count;
+    },
+    watch: {
+        count: function (newCount) {
+            this.displayedCount = newCount;
+        }
     }
 
 }
