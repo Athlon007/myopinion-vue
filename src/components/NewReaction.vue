@@ -2,12 +2,14 @@
     <button class="paper-btn btn-secondary" @click="showPicker = !showPicker">
         <p>+</p><span>&nbsp;</span>
     </button>
-    <div v-if="showPicker" class="reactions">
-        <button v-for="reactionEntity in reactionEntities" @click="$event => addReaction(reactionEntity)">
-            <div v-html="reactionEntity.htmlEntity"></div>
-        </button>
+    <div class="reactions-container">
+        <div v-if="showPicker" class="reactions" :class="{ 'reactions-visible': showPicker }">
+            <button v-for="reactionEntity in reactionEntities" @click="$event => addReaction(reactionEntity)">
+                <div v-html="reactionEntity.htmlEntity"></div>
+            </button>
+        </div>
+        <div v-else></div>
     </div>
-    <div v-else></div>
 </template>
 
 <script>
@@ -47,6 +49,11 @@ export default {
 </script>
 
 <style scoped>
+.reactions-container {
+    overflow-y: hidden;
+    margin-top: 1em;
+}
+
 .reactions {
     display: flex;
     flex-direction: row;
@@ -56,7 +63,23 @@ export default {
     align-content: center;
     width: 100%;
     height: 100%;
-    padding: 0;
     margin: 0;
+    background-color: var(--secondary-light);
+    padding: 0.5em;
+}
+
+.reactions-visible {
+    animation: show 0.5s ease-in-out;
+}
+
+@keyframes show {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
 }
 </style>

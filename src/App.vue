@@ -6,7 +6,7 @@ import { RouterLink, RouterView } from "vue-router";
   <div class="wrapper">
     <nav>
       <router-link class="nav-link" active-class="active" to="/">Home</router-link>
-      <router-link class="nav-link" active-class="active" to="/about">Admin</router-link>
+      <router-link class="nav-link" active-class="active" to="/login">Login</router-link>
       <router-link class="nav-link" active-class="active" to="/404">404</router-link>
       <router-link class="nav-link" active-class="active" to="/about">About</router-link>
     </nav>
