@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h3>Today's topic is...</h3>
         <h1>{{ topic.name }}</h1>
     </div>
 </template>
@@ -33,4 +34,13 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+h1,
+h3 {
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+}
+</style>

@@ -6,18 +6,21 @@ import Reaction from './Reaction.vue';
     <div class="card paper">
         <h2>{{ title }}</h2>
         <p>{{ content }}</p>
+        <div class="reactions">
+            <Reaction v-for="reaction in reactions" :key="reaction.id" :id="reaction.id"
+                :reactionEntity="reaction.reaction_entity" :count="reaction.count" />
+        </div>
     </div>
 </template>
 
 <script>
 export default {
     name: "Opinion",
-    data() {
-        return {
-            id: -1
-        }
-    },
     props: {
+        id: {
+            type: Number,
+            required: true,
+        },
         title: {
             type: String,
             required: true,
@@ -30,7 +33,7 @@ export default {
             type: Array,
             required: false,
         }
-    },
+    }
 }
 </script>
 

@@ -5,11 +5,13 @@ import Opinion from './Opinion.vue';
 <template>
     <div class="container paper">
         <div class="opinions">
-            <Opinion v-for="opinion in opinions" :key="opinion.id" :title="opinion.title" :content="opinion.content" />
+            <Opinion v-for="opinion in opinions" :key="opinion.id" :id="opinion.id" :title="opinion.title"
+                :content="opinion.content" :reactions="opinion.reactions" />
         </div>
-        <div class="button-container">
+        <div class="button-container" v-if="displayMore">
             <button>Load More...</button>
         </div>
+        <div class="button-container" v-else></div>
     </div>
 </template>
 
@@ -20,17 +22,24 @@ export default {
     name: "Opinions",
     data() {
         return {
-            'topic': {
-                'id': -1,
-                'name': 'Opinions'
+            topic: {
+                id: -1,
+                name: 'Opinions'
             },
-            'opinions': []
+            opinions: [],
+            limit: 10,
+            offset: 0,
+            displayMore: true
         }
     },
     methods: {
         async loadOpinions() {
-            const response = await axios.get('/topics/today/opinions');
-            console.log(response.data);
+            const response = await axios.get('/topics/today/opinions', {
+                params: {
+                    limit: this.limit,
+                    offset: this.offset
+                }
+            });
             this.opinions = response.data;
         }
     },

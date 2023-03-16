@@ -1,11 +1,28 @@
 <template>
-    <button class="paper-btn btn-primary">
+    <button class="paper-btn btn-primary emoji emoji-lg">
+        <div v-html="reactionEntity.htmlEntity"></div>
+        <span>{{ count }}</span>
     </button>
 </template>
 
 <script>
 export default {
-    name: "Reaction"
+    name: "Reaction",
+    props: {
+        id: {
+            type: Number,
+            required: true
+        },
+        reactionEntity: {
+            type: Object,
+            required: true
+        },
+        count: {
+            type: Number,
+            required: false
+        }
+    }
+
 }
 </script>
 

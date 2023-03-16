@@ -5,10 +5,10 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <div class="wrapper">
     <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">Admin</RouterLink>
-      <RouterLink to="/404">404</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+      <router-link class="nav-link" active-class="active" to="/">Home</router-link>
+      <router-link class="nav-link" active-class="active" to="/about">Admin</router-link>
+      <router-link class="nav-link" active-class="active" to="/404">404</router-link>
+      <router-link class="nav-link" active-class="active" to="/about">About</router-link>
     </nav>
   </div>
   <main>
@@ -21,16 +21,6 @@ import { RouterLink, RouterView } from "vue-router";
 </style>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
 nav {
   width: 100%;
   font-size: 12px;
@@ -38,22 +28,14 @@ nav {
   margin-top: 2rem;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.active {
+  border-bottom: 2px solid #000;
 }
 
 nav a {
   display: inline-block;
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
+  border-bottom: 0;
 }
 
 @media (min-width: 1024px) {
