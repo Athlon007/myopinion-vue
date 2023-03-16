@@ -5,7 +5,7 @@ import Reaction from './Reaction.vue';
 <template>
     <div class="card paper">
         <h2>{{ title }}</h2>
-        <p>{{ message }}</p>
+        <p>{{ content }}</p>
     </div>
 </template>
 
@@ -13,16 +13,22 @@ import Reaction from './Reaction.vue';
 export default {
     name: "Opinion",
     data() {
-
+        return {
+            id: -1
+        }
     },
     props: {
         title: {
             type: String,
             required: true,
         },
-        message: {
+        content: {
             type: String,
             required: true,
+        },
+        reactions: {
+            type: Array,
+            required: false,
         }
     },
 }

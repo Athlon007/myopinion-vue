@@ -3,10 +3,9 @@ import Opinion from './Opinion.vue';
 </script>
 
 <template>
-    <h1>Topic</h1>
     <div class="container paper">
         <div class="opinions">
-            <Opinion v-for="opinion in opinions" :key="opinion.title" :title="opinion.title" :message="opinion.message" />
+            <Opinion v-for="opinion in opinions" :key="opinion.id" :title="opinion.title" :content="opinion.content" />
         </div>
         <div class="button-container">
             <button>Load More...</button>
@@ -21,15 +20,23 @@ export default {
     name: "Opinions",
     data() {
         return {
+            'topic': {
+                'id': -1,
+                'name': 'Opinions'
+            },
             'opinions': []
         }
     },
     methods: {
         async loadOpinions() {
-            const response = await axios.get('/opinions');
+            const response = await axios.get('/topics/today/opinions');
+            console.log(response.data);
             this.opinions = response.data;
         }
     },
+    mounted() {
+        this.loadOpinions();
+    }
 }
 </script>
 
