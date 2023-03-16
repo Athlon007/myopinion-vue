@@ -8,7 +8,10 @@ import Reaction from './Reaction.vue';
         <p>{{ content }}</p>
         <div class="reactions">
             <Reaction v-for="reaction in reactions" :key="reaction.id" :id="reaction.id"
-                :reactionEntity="reaction.reaction_entity" :count="reaction.count" />
+                :reactionEntity="reaction.reaction_entity" :count="reaction.count" :opinionID="this.id" />
+            <button class="paper-btn btn-secondary">
+                <p>+</p><span>&nbsp;</span>
+            </button>
         </div>
     </div>
 </template>

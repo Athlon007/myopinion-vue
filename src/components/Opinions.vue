@@ -40,7 +40,21 @@ export default {
                     offset: this.offset
                 }
             });
-            this.opinions = response.data;
+            //this.opinions = response.data;
+            // add new opinions to the existing opinions
+            let newOpinions = response.data;
+            if (this.opinions.length > 0) {
+                this.opinions.push(newOpinions);
+            } else {
+                this.opinions = newOpinions;
+            }
+
+
+            if (this.opinions.length < this.limit) {
+                this.displayMore = false;
+            }
+
+            this.offset += this.limit;
         }
     },
     mounted() {
