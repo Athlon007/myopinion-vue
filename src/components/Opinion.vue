@@ -1,5 +1,6 @@
 <script setup>
 import Reaction from './Reaction.vue';
+import NewReaction from './NewReaction.vue';
 </script>
 
 <template>
@@ -9,9 +10,7 @@ import Reaction from './Reaction.vue';
         <div class="reactions">
             <Reaction v-for="reaction in reactions" :key="reaction.id" :id="reaction.id"
                 :reactionEntity="reaction.reaction_entity" :count="reaction.count" :opinionID="this.id" />
-            <button class="paper-btn btn-secondary">
-                <p>+</p><span>&nbsp;</span>
-            </button>
+            <NewReaction />
         </div>
     </div>
 </template>
