@@ -2,6 +2,9 @@
   <div>
     <div class="paper">
       <div class="form-group">
+        <div class="alert alert-danger" role="alert" v-if="this.error.length > 0">
+          <p>{{ this.error }}</p>
+        </div>
         <label for="title">Title</label>
         <input type="text" class="form-control" id="title" placeholder="Enter title" v-model="title" />
       </div>
@@ -25,7 +28,8 @@ export default {
     return {
       maxContentLength: 512,
       title: "",
-      content: ""
+      content: "",
+      error: ""
     };
   },
   methods: {
@@ -34,6 +38,7 @@ export default {
     },
     async sendOpinion() {
       try {
+        this.error = "";
         await axios.post("/opinions", {
           id: -1,
           title: this.title,
@@ -43,7 +48,12 @@ export default {
         // navigate to /
         this.$router.push('home');
       } catch (error) {
-        console.error(error);
+        console.log(error);
+        if (error.response) {
+          this.error = error.response.data.errorMessage;
+        } else {
+          this.error = "An unknown error occurred.";
+        }
       }
     }
   }
