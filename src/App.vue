@@ -7,13 +7,21 @@ import { RouterLink, RouterView } from "vue-router";
     <nav>
       <router-link class="nav-link" active-class="active" to="/">Home</router-link>
       <router-link class="nav-link" active-class="active" to="/admin">Admin</router-link>
-      <router-link class="nav-link" active-class="active" to="/404">404</router-link>
       <router-link class="nav-link" active-class="active" to="/about">About</router-link>
     </nav>
   </div>
   <main>
     <RouterView />
   </main>
+  <footer>
+    <p>Copyright &copy; Konrad Figura 2023</p>
+    <ul>
+      <li><router-link to="/">Home</router-link></li>
+      <li><router-link to="/admin">Admin</router-link></li>
+      <li><router-link to="/404">404</router-link></li>
+      <li><router-link to="/about">About</router-link></li>
+    </ul>
+  </footer>
 </template>
 
 <script>
@@ -75,6 +83,14 @@ nav a {
 
     padding: 1rem 0;
     margin-top: 1rem;
+  }
+
+  footer {
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-items: center;
   }
 }
 </style>
