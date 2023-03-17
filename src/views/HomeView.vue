@@ -10,3 +10,9 @@ import Topic from "../components/Topic.vue";
     <Opinions />
   </main>
 </template>
+
+<script>
+export default {
+  name: "HomeView",
+};
+</script>

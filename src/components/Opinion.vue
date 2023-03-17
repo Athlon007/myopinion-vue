@@ -10,7 +10,7 @@ import NewReaction from './NewReaction.vue';
         <div class="reactions">
             <Reaction v-for="reaction in reactionsDisplayed" :key="reaction.id" :id="reaction.id"
                 :reactionEntity="reaction.reaction_entity" :count="reaction.count" :opinionID="this.id" />
-            <NewReaction :opinionID="this.id" @reaction-added="(r) => refreshReactions(r)" />
+            <NewReaction :opinionID="this.id" @reaction-added="r => refreshReactions(r)" />
         </div>
     </div>
 </template>
@@ -51,7 +51,7 @@ export default {
                     return;
                 }
             }
-            //this.reactions.push(reaction);
+            this.reactions.push(reaction);
         }
     },
     mounted() {

@@ -3,7 +3,7 @@
         <p>+</p><span>&nbsp;</span>
     </button>
     <div class="reactions-container">
-        <div v-if="showPicker" class="reactions" :class="{ 'reactions-visible': showPicker }">
+        <div v-if="showPicker" class="reactions paper" :class="{ 'reactions-visible': showPicker }">
             <button v-for="reactionEntity in reactionEntities" @click="$event => addReaction(reactionEntity)">
                 <div v-html="reactionEntity.htmlEntity"></div>
             </button>
@@ -29,6 +29,7 @@ export default {
             required: true
         }
     },
+    emits: ['reaction-added'],
     methods: {
         async addReaction(reactionEntity) {
             try {
@@ -37,6 +38,7 @@ export default {
                 );
 
                 this.$emit('reaction-added', response.data);
+                this.showPicker = false;
             } catch (error) {
                 console.error(error);
             }
@@ -66,10 +68,11 @@ export default {
     margin: 0;
     background-color: var(--secondary-light);
     padding: 0.5em;
+    animation: hide 0.1s ease-in-out;
 }
 
 .reactions-visible {
-    animation: show 0.5s ease-in-out;
+    animation: show 0.1s ease-in-out;
 }
 
 @keyframes show {
@@ -79,6 +82,17 @@ export default {
 
     100% {
         transform: translateY(0);
+    }
+
+}
+
+@keyframes hide {
+    0% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        transform: translateY(-100%);
     }
 
 }
