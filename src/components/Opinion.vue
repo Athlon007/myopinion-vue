@@ -60,4 +60,17 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.card {
+    width: 100%;
+}
+
+h2 {
+    line-height: 0.75em;
+}
+
+p,
+h2 {
+    margin-bottom: 0.5em;
+}
+</style>

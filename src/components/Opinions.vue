@@ -94,7 +94,7 @@ export default {
     flex-grow: 1;
     flex-shrink: 1;
     flex-wrap: wrap;
-    flex-basis: 2;
+    flex-basis: auto;
 }
 
 div>* {
