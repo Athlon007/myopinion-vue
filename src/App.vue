@@ -26,13 +26,18 @@ import { RouterLink, RouterView } from "vue-router";
 
 <script>
 import axios from "./axios_auth.js";
+import { useUserSessionStore } from './stores/usersession'
 
 export default {
   name: "App",
-  async mounted() {
+  mounted() {
     // Load reaction entities into global value.
-    const response = await axios.get("/reactions");
-    window.reactionEntities = response.data;
+    axios.get("/reactions")
+      .then((response) => {
+        window.reactionEntities = response.data;
+      });
+
+    useUserSessionStore().localLogin();
   },
 };
 </script>
