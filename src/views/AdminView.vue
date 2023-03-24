@@ -24,7 +24,9 @@ export default {
   methods: {
   },
   mounted() {
-
+    if (!this.store.isAuthenticated) {
+      this.$router.push("/login");
+    }
   }
 };
 </script>
