@@ -1,6 +1,7 @@
 <script setup>
 import Reaction from './Reaction.vue';
 import NewReaction from './NewReaction.vue';
+import Report from './Report.vue';
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import NewReaction from './NewReaction.vue';
             <Reaction v-for="reaction in reactionsDisplayed" :key="reaction.id" :id="reaction.id"
                 :reactionEntity="reaction.reaction_entity" :count="reaction.count" :opinionID="this.id" />
             <NewReaction :opinionID="this.id" @reaction-added="r => refreshReactions(r)" />
+            <Report :opinionID="this.id" />
         </div>
     </div>
 </template>

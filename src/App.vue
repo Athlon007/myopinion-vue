@@ -37,6 +37,11 @@ export default {
         window.reactionEntities = response.data;
       });
 
+    axios.get('/reports/types')
+      .then((response) => {
+        window.reportTypes = response.data;
+      });
+
     useUserSessionStore().localLogin();
   },
 };
