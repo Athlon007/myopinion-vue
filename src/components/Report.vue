@@ -1,7 +1,8 @@
 <template>
-    <a @click="isVisible = !isVisible">
+    <a v-if="!this.isSent" @click="isVisible = !isVisible">
         Report...
     </a>
+    <p v-else>Report sent!</p>
     <div class="reactions-container">
         <div v-if="isVisible" class="reactions paper" :class="{ 'reactions-visible': isVisible }">
             <label v-for="reportType in this.reportTypes" class="paper-radio" @click="this.selectedReportType = reportType">
@@ -24,7 +25,8 @@ export default {
         return {
             isVisible: false,
             reportTypes: [],
-            selectedReportType: null
+            selectedReportType: null,
+            isSent: false
         }
     },
     props: {
@@ -42,6 +44,7 @@ export default {
 
                 this.$emit('reaction-added', response.data);
                 this.isVisible = false;
+                this.isSent = true;
             } catch (error) {
                 console.error(error);
             }
