@@ -103,4 +103,8 @@ nav a {
     justify-items: center;
   }
 }
+
+.main {
+  min-width: 80vw;
+}
 </style>

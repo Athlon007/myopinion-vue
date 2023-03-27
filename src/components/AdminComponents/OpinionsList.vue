@@ -55,10 +55,15 @@ export default {
             editedOpinionReports: []
         }
     },
+    props: {
+        user: Object,
+        required: false
+    },
     methods: {
         async getOpinions() {
             try {
-                const response = await axios.get('/topics/' + this.selectedTopic.id + '/opinions');
+                let url = this.user.accountType == 1 ? '/topics/' + this.selectedTopic.id + '/opinions' : '/topics/today/opinions';
+                const response = await axios.get(url);
                 this.opinions = response.data;
             } catch (error) {
                 console.error(error);
@@ -66,8 +71,15 @@ export default {
         },
         async getTopics() {
             try {
-                const response = await axios.get('/topics');
-                this.topics = response.data;
+                let url = this.user.accountType == 1 ? '/topics' : '/topics/today';
+                const response = await axios.get(url);
+                if (this.user.accountType == 1) {
+                    this.topics = response.data;
+                } else {
+                    this.topics.push(response.data);
+                    this.selectedTopic = response.data;
+                    this.getOpinions();
+                }
             } catch (error) {
                 console.error(error);
             }

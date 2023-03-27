@@ -128,10 +128,6 @@ textarea {
     width: 100%;
 }
 
-.card {
-    flex-grow: 1;
-}
-
 .add-new-btn {
     width: 100%;
 }
