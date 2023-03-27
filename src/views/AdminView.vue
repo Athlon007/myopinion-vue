@@ -1,15 +1,18 @@
 <script setup>
 import OpinionsList from "../components/AdminComponents/OpinionsList.vue";
+import TopicList from "../components/AdminComponents/TopicList.vue";
 </script>
 
 <template>
   <main>
     <nav class="small-nav">
-      <a href="#" class="nav-link" @click="showOpinions">Opinions</a>
+      <a href="#" class="nav-link" @click="this.selectedPage = 'opinions'">Opinions</a>
+      <a href="#" class="nav-link" @click="this.selectedPage = 'topics'">Topics</a>
       <a href="#" class="nav-link" @click="logout">Logout</a>
     </nav>
     <div class="row">
       <OpinionsList v-if="this.selectedPage === 'opinions'" class="paper" />
+      <TopicList v-else-if="this.selectedPage === 'topics'" class="paper" />
     </div>
   </main>
 </template>
