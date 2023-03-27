@@ -13,7 +13,7 @@ import AccountsList from "../components/AdminComponents/AccountsList.vue";
       <a href="#" class="nav-link" @click="logout">Logout ({{ this.me.username }})</a>
     </nav>
     <div class="row">
-      <OpinionsList v-if="this.selectedPage === 'opinions'" class="paper" :user="this.me" />
+      <OpinionsList v-if="this.selectedPage === 'opinions'" class="paper" />
       <TopicList v-else-if="this.selectedPage === 'topics'" class="paper" />
       <AccountsList v-else-if="this.selectedPage === 'accounts'" class="paper" />
     </div>
@@ -26,12 +26,9 @@ import axios from "../axios_auth.js";
 
 export default {
   name: "LoginView",
-  setup() {
-    return { store: useUserSessionStore() };
-  },
   data() {
     return {
-      selectedPage: "none",
+      selectedPage: "opinions",
       me: {
         id: null,
         username: "",

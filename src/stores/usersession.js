@@ -11,7 +11,7 @@ export const useUserSessionStore = defineStore('usersession', {
     },
     actions: {
         localLogin() {
-            if (!localStorage['jwt'] || !localStorage['username']) {
+            if (!localStorage['jwt'] || !localStorage['username'] || !localStorage['jwt'].length || !localStorage['username'].length) {
                 return;
             }
 
@@ -57,6 +57,8 @@ export const useUserSessionStore = defineStore('usersession', {
         logout() {
             this.token = '';
             this.username = '';
+            localStorage.removeItem('jwt');
+            localStorage.removeItem('username');
             axios.defaults.headers.common['Authorization'] = '';
         }
     }

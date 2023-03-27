@@ -51,7 +51,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.store.isAuthenticated);
     if (this.store.isAuthenticated) {
       this.$router.push('/admin');
     }

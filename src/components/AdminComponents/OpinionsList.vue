@@ -52,17 +52,20 @@ export default {
                 title: null,
                 content: null
             },
-            editedOpinionReports: []
+            editedOpinionReports: [],
+            user: {
+                id: null,
+                accountType: {
+                    id: 1,
+                    name: null
+                }
+            }
         }
-    },
-    props: {
-        user: Object,
-        required: false
     },
     methods: {
         async getOpinions() {
             try {
-                let url = this.user.accountType == 1 ? '/topics/' + this.selectedTopic.id + '/opinions' : '/topics/today/opinions';
+                let url = this.user.accountType.id == 1 ? '/topics/' + this.selectedTopic.id + '/opinions' : '/topics/today/opinions';
                 const response = await axios.get(url);
                 this.opinions = response.data;
             } catch (error) {
@@ -71,9 +74,9 @@ export default {
         },
         async getTopics() {
             try {
-                let url = this.user.accountType == 1 ? '/topics' : '/topics/today';
+                let url = this.user.accountType.id == 1 ? '/topics' : '/topics/today';
                 const response = await axios.get(url);
-                if (this.user.accountType == 1) {
+                if (this.user.accountType.id == 1) {
                     this.topics = response.data;
                 } else {
                     this.topics.push(response.data);
@@ -133,7 +136,14 @@ export default {
         }
     },
     mounted() {
-        this.getTopics();
+        axios.get('/accounts/me')
+            .then(response => {
+                this.user = response.data;
+                this.getTopics();
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 }
 </script>
