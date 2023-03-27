@@ -2,6 +2,7 @@
 import OpinionsList from "../components/AdminComponents/OpinionsList.vue";
 import TopicList from "../components/AdminComponents/TopicList.vue";
 import AccountsList from "../components/AdminComponents/AccountsList.vue";
+import ReactionsList from "../components/AdminComponents/ReactionsList.vue";
 </script>
 
 <template>
@@ -10,12 +11,15 @@ import AccountsList from "../components/AdminComponents/AccountsList.vue";
       <a href="#" class="nav-link" @click="this.selectedPage = 'opinions'">Opinions</a>
       <a href="#" class="nav-link" @click="this.selectedPage = 'topics'" v-if="this.me.accountType.id == 1">Topics</a>
       <a href="#" class="nav-link" @click="this.selectedPage = 'accounts'" v-if="this.me.accountType.id == 1">Accounts</a>
+      <a href="#" class="nav-link" @click="this.selectedPage = 'reactions'"
+        v-if="this.me.accountType.id == 1">Reactions</a>
       <a href="#" class="nav-link" @click="logout">Logout ({{ this.me.username }})</a>
     </nav>
     <div class="row">
       <OpinionsList v-if="this.selectedPage === 'opinions'" class="paper" />
       <TopicList v-else-if="this.selectedPage === 'topics'" class="paper" />
       <AccountsList v-else-if="this.selectedPage === 'accounts'" class="paper" />
+      <ReactionsList v-else-if="this.selectedPage === 'reactions'" class="paper" />
     </div>
   </main>
 </template>

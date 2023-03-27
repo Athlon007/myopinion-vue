@@ -17,8 +17,8 @@
       <li><a href="https://vuejs.org/" target="_blank">Vue</a></li>
       <li><a href="https://router.vuejs.org/" target="_blank">Vue Router</a></li>
       <li><a href="https://www.getpapercss.com/" target="_blank">Paper</a></li>
-      <li><a href="#" target="_blank">Axios</a></li>
-      <li><a href="#" target="_blank">Pinianpm</a></li>
+      <li><a href="https://github.com/vuejs/pinia" target="_blank">Axios</a></li>
+      <li><a href="https://github.com/vuejs/pinia" target="_blank">Pinia</a></li>
     </ul>
   </div>
 </template>
