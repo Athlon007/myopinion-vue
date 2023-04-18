@@ -4,9 +4,9 @@ The Web Development 2 project, which builds upon the Web Development 1 project. 
 
 For the front-end, visit <http://github.com/Athlon007/myopinion-vue>.
 
-Hosted at: <http://myopinion.kfigura.nl/>
+Hosted at: ~~http://myopinion.kfigura.nl~~
 
-If you want to visit the old version, visit <http://old.myopinion.kfigura.nl>.
+If you want to visit the old version, visit ~~http://old.myopinion.kfigura.nl~~.
 
 ## Used Libraries
 
